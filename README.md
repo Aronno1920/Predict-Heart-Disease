@@ -8,6 +8,17 @@ A FastAPI-based machine learning API for predicting heart disease, containerized
 - `/info` - Model info and feature list
 - `/predict` - Heart disease prediction
 
+
+## Run AI Locally
+```bash
+### preferred way
+uvicorn app.main:app --reload
+
+### another way
+python -m app.main
+
+
+
 ## Run Locally
 ```bash
 docker-compose build
