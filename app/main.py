@@ -20,7 +20,7 @@ def health_check():
 @app.get("/info")
 def info():
     return {
-        "model": "Logistic Regression",
+        "model": "Random Forest Classifier",
         "features": [
             "age", "sex", "cp", "trestbps", "chol", "fbs",
             "restecg", "thalach", "exang", "oldpeak",
