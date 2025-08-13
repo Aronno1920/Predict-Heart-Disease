@@ -151,3 +151,17 @@ I included:
 Do you want me to also include a **cURL command** example so users can test `/predict` directly from the terminal? That could make the README even more developer-friendly.
 
 ```
+
+## 📸 Screenshots
+
+![API Performance Comparison](Io_bound_task.png)
+*Performance comparison between sync and async endpoints*
+
+![API Usage Example](Io_example_api.png)
+*Example API usage and response*
+
+---
+
+**Author**: [TAHMID37](https://github.com/TAHMID37)  
+**Project**: FastAPI ML Iris Classifier  
+**Last Updated**: August 2025
