@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container { max-width: 1024px; width: 100%; }
+
+        .card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 16px;
+            width: 100%;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
+
+        h1 { text-align: center; margin-bottom: 20px; color: #333; }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        label { font-weight: 600; font-size: 0.9rem; min-width: 135px; color: #555; }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.2s;
+            flex: 1;
+        }
+
+        input:focus { border-color: #ff4b8b; box-shadow: 0 0 5px rgba(255, 75, 139, 0.3); }
+
+        .full-width { grid-column: 1 / -1; display: flex; gap:10px; }
+
+        .buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-predict {
+            flex: 1;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff4b8b, #ff6a9c);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-predict:hover { background: linear-gradient(135deg, #ff2a78, #ff4b8b); }
+
+        .btn-clear {
+            flex: 1;
+            padding: 12px;
+            background: #888;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-clear:hover { background: #555; }
+
+        .result {
+            grid-column: 1 / -1;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .positive { background: #ffe0e0; color: #a10000; }
+        .negative { background: #e0ffe6; color: #006600; }
+
+        .swagger-link {
+            display: inline-block;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .swagger-link:hover { background: linear-gradient(135deg, #388e3c, #2e7d32); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>❤️ Heart Disease Prediction</h1>
+        <form id="predictionForm" method="POST">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" value="{{ request.form.age or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex (1=Male, 0=Female)</label>
+                <input type="number" name="sex" id="sex" value="{{ request.form.sex or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="cp">Chest Pain Type</label>
+                <input type="number" name="cp" id="cp" value="{{ request.form.cp or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="trestbps">Resting BP</label>
+                <input type="number" name="trestbps" id="trestbps" value="{{ request.form.trestbps or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="chol">Cholesterol</label>
+                <input type="number" name="chol" id="chol" value="{{ request.form.chol or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar</label>
+                <input type="number" name="fbs" id="fbs" value="{{ request.form.fbs or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="restecg">Rest ECG</label>
+                <input type="number" name="restecg" id="restecg" value="{{ request.form.restecg or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="thalach">Max Heart Rate</label>
+                <input type="number" name="thalach" id="thalach" value="{{ request.form.thalach or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="exang">Exercise Angina</label>
+                <input type="number" name="exang" id="exang" value="{{ request.form.exang or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="oldpeak">Oldpeak</label>
+                <input type="number" step="0.1" name="oldpeak" id="oldpeak" value="{{ request.form.oldpeak or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="slope">Slope</label>
+                <input type="number" name="slope" id="slope" value="{{ request.form.slope or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="ca">CA</label>
+                <input type="number" name="ca" id="ca" value="{{ request.form.ca or '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="thal">Thal</label>
+                <input type="number" name="thal" id="thal" value="{{ request.form.thal or '' }}" required>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit" name="action" value="predict" class="btn-predict">Predict</button>
+                <button type="button" class="btn-clear">Reload</button>
+                <!-- <button type="submit" name="action" value="clear" class="btn-clear">Reload</button> -->
+            </div>
+        </form>
+
+        <!-- Result Box -->
+        <div id="resultBox" class="hidden mt-8 p-5 rounded-lg text-center font-semibold text-lg shadow-lg fade-in"></div>
+    </div>
+
+        <!-- Swagger Link -->
+    <div style="text-align: center; margin-top: 15px;">
+        <a href="http://localhost:8000/docs" target="_blank" class="swagger-link">📄 API Docs</a>
+    </div>
+
+</div>
+
+<script>
+    const predictionForm = document.getElementById("predictionForm");
+    const resultBox = document.getElementById("resultBox");
+
+    // Predict Button Submit Handler
+    predictionForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        for (let key in data) {
+            data[key] = parseFloat(data[key]);
+        }
+
+        try {
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) throw new Error("API request failed");
+
+            const result = await response.json();
+
+            if (result.heart_disease) {
+                resultBox.textContent = "💔 Opps !!! Positive for Heart Disease";
+                resultBox.className = "mt-8 p-5 rounded-lg text-center font-semibold text-lg bg-red-100 text-red-700 shadow-lg fade-in";
+            } else {
+                resultBox.textContent = "💖 WOW !!! Negative for Heart Disease";
+                resultBox.className = "mt-8 p-5 rounded-lg text-center font-semibold text-lg bg-green-100 text-green-700 shadow-lg fade-in";
+            }
+
+            resultBox.classList.remove("hidden");
+
+        } catch (err) {
+            resultBox.textContent = "⚠️ Error connecting to prediction API";
+            resultBox.className = "mt-8 p-5 rounded-lg text-center font-semibold text-lg bg-yellow-100 text-yellow-700 shadow-lg fade-in";
+            resultBox.classList.remove("hidden");
+        }
+    });
+
+    // Clear Button Handler
+    document.querySelector(".btn-clear").addEventListener("click", function() {
+        predictionForm.reset();
+        resultBox.textContent = "";
+        resultBox.classList.add("hidden");
+    });
+</script>
+
+</body>
+</html>

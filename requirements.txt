@@ -1,8 +1,9 @@
 numpy
 pandas
 fastapi
-scikit-learn
 uvicorn
+scikit-learn
 joblib
-flask
-requests
+
+jinja2
+python-multipart

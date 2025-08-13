@@ -1,12 +1,25 @@
+###### Import Required Library
 import numpy as np
-from fastapi import FastAPI
-from app.schemas import HeartInput
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 import joblib
 
-app = FastAPI(title="API: Predict Heart Disease")
-model = joblib.load("model/heart_model.joblib")
-
+from .schemas import HeartInput
+import pathlib
 ##########################################
+
+
+
+###### Initial FastAPI
+app = FastAPI(title="API: Predict Heart Disease", version="1.0")
+model = joblib.load("model/heart_model.joblib")
+templates = Jinja2Templates(directory="app/templates")
+##########################################
+
+
+
+###### API Endpoints
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
@@ -32,4 +45,13 @@ def predict(data: HeartInput):
                             data.ca, data.thal]])
     prediction = model.predict(input_data)[0]
     return {"heart_disease": bool(prediction)}
+##########################################
+
+
+
+###### FRONTEND ROUTES
+@app.get("/", response_class=HTMLResponse)
+def home():
+    html_file = pathlib.Path(__file__).parent / "templates" / "index.html"
+    return HTMLResponse(content=html_file.read_text(encoding="utf-8"), status_code=200)
 ##########################################
