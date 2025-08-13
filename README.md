@@ -53,7 +53,7 @@ git clone https://github.com/Aronno1920/Predict-Heart-Disease.git
 cd PredictHeartDisease
 ```
 ### 3. Create and activate a virtual environment
-```
+```bash
 # On Windows PowerShell
 python -m venv venv
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
