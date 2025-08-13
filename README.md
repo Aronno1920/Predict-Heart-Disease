@@ -98,12 +98,12 @@ ReDoc ➡ http://127.0.0.1:8000/redoc
 | POST | `/predict` | Predict Iris species |
 
 
-### 🐳 Run with Docker
+## 🐳 Run with Docker
 ```bash
 docker build -t heart-disease-api .
 docker run -p 8000:8000 heart-disease-api
 ```
-### 🌐 Deployed API
+## 🌐 Deployed API
 ```bash
 Live Endpoint:
 Base URL: https://heart-disease-prediction-joq2.onrender.com
@@ -139,12 +139,9 @@ Response:
   "heart_disease": true
 }
 ```
-### 📚 Documentation
-
-The interactive API documentation is available here:
-👉 Swagger UI
 
 ---
+
 I included:
 - Deployment link
 - Installation steps
