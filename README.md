@@ -16,7 +16,7 @@ uvicorn app.main:app --reload
 
 ### another way
 python -m app.main
-
+```
 
 
 ## Run Locally
