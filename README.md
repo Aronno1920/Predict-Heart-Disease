@@ -12,11 +12,18 @@ A FastAPI-based machine learning API for predicting heart disease, containerized
 ## Run AI Locally
 ```bash
 ### preferred way
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8000
 
 ### another way
 python -m app.main
 ```
+
+## Run Flask UI
+```bash
+### preferred way
+python flask_ui/app.py
+```
+
 
 
 ## Run Locally

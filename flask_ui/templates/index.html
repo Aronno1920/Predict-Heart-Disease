@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form method="post">
+        Age: <input type="number" name="age" required><br>
+        Sex (0=Female, 1=Male): <input type="number" name="sex" required><br>
+        Chest Pain Type (cp): <input type="number" name="cp" required><br>
+        Resting BP (trestbps): <input type="number" name="trestbps" required><br>
+        Cholesterol (chol): <input type="number" name="chol" required><br>
+        Fasting Blood Sugar (fbs): <input type="number" name="fbs" required><br>
+        Rest ECG (restecg): <input type="number" name="restecg" required><br>
+        Max Heart Rate (thalach): <input type="number" name="thalach" required><br>
+        Exercise Induced Angina (exang): <input type="number" name="exang" required><br>
+        Oldpeak: <input type="text" name="oldpeak" required><br>
+        Slope: <input type="number" name="slope" required><br>
+        CA: <input type="number" name="ca" required><br>
+        Thal: <input type="number" name="thal" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Prediction: {{ 'Heart Disease Detected' if prediction else 'No Heart Disease' }}</h2>
+    {% endif %}
+</body>
+</html>
