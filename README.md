@@ -7,8 +7,6 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 # 🚀 **Live API**: [Live GUI](https://heart-disease-prediction-joq2.onrender.com/docs#/)
 
 ---
-![Screenshot](https://github.com/mahisalman/Heart_Disease_Prediction/blob/main/Screenshot_2.png)
-![Screenshot](https://github.com/mahisalman/Heart_Disease_Prediction/blob/main/Screenshot_1.png)
 
 ## 🌟 Features
 - **Machine Learning Model**: Random Forest Classifier trained on heart disease dataset.
