@@ -9,9 +9,12 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 ---
 ![Screenshot](https://github.com/mahisalman/Heart_Disease_Prediction/blob/main/Screenshot_2.png)
 ![Screenshot](https://github.com/mahisalman/Heart_Disease_Prediction/blob/main/Screenshot_1.png)
-## 📌 Features
+
+## 🌟 Features
 - **Machine Learning Model**: Random Forest Classifier trained on heart disease dataset.
-- **REST API** built with FastAPI.
+- **RESTful API**: Clean, well-documented endpoints using FastAPI.
+- **Type Safety**: Full Pydantic schema validation
+- **Auto Documentation**: Interactive API docs with Swagger UI
 - **Dockerized** for easy deployment.
 - **Live on Render** with automatic documentation.
 
@@ -19,6 +22,7 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 
 ## 📂 Project Structure
 ```
+PredictHeartDisease/
 ├── app
 │ ├── main.py # FastAPI app entry point
 │ ├── schemas.py # Pydantic request/response models
@@ -34,34 +38,62 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 ```
 ## 🛠 Installation & Local Development
 
-### 1️⃣ Clone the repository
+### 1. Prerequisites
 ```
 bash
-git clone https://github.com/<your-username>/Heart_Disease_Prediction.git
-cd Heart_Disease_Prediction
+- Python 3.8+
+- pip (Python package manager)
 ```
-### 2️⃣ Create and activate a virtual environment
+
+### 2. Clone the repository
 ```
+bash
+git clone https://github.com/Aronno1920/Predict-Heart-Disease.git
+cd PredictHeartDisease
+```
+### 3. Create and activate a virtual environment
+```
+# On Windows PowerShell
 python -m venv venv
-source venv/bin/activate   # Linux / Mac
-venv\Scripts\activate      # Windows
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\env\Scripts\activate
+
+# On Linux/Mac
+python -m venv env
+source env/bin/activate
 ```
-### 3️⃣ Install dependencies
+### 4. Install dependencies
 ```
 pip install -r requirements.txt
 ```
-### 4️⃣ Train the model (if not already trained)
+### 5. Train the model (if not already trained)
 ```
-python model.py
+# On Random Forest Classifier
+python model_train_random.py
+
+# For Logistic Regression
+python model_train_logistic.py
 ```
-### 5️⃣ Run the API locally
+### 6. Run the API locally
 ```
 uvicorn app.main:app --reload
 
 API will be available at:
-➡ http://127.0.0.1:8000
-Swagger Docs: http://127.0.0.1:8000/docs
+API ➡ http://127.0.0.1:8000
+Swagger Docs ➡ http://127.0.0.1:8000/docs
+ReDoc ➡ http://127.0.0.1:8000/redoc
 ```
+
+## 📖 API Endpoints
+### Main ML API (`app.main`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Health check endpoint |
+| GET | `/info` | Model information |
+| POST | `/predict` | Predict Iris species |
+
+
 ### 🐳 Run with Docker
 ```
 docker build -t heart-disease-api .
