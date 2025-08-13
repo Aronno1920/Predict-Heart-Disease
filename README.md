@@ -160,6 +160,5 @@ Do you want me to also include a **cURL command** example so users can test `/pr
 
 ---
 
-**Author**: [TAHMID37](https://github.com/TAHMID37)  
-**Project**: FastAPI ML Iris Classifier  
-**Last Updated**: August 2025
+**Author**: [Selim Ahmed](https://github.com/aronno1920)  
+**Project**: FastAPI - Predict Heart Disease  
