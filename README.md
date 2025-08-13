@@ -3,7 +3,7 @@ Build a simple **FastAPI** app that serves predictions from a machine learning c
 
 The model is trained using a Random Forest Classifier on the [Kaggle Heart Disease dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset).
 
-# [Swagger Docs](https://predict-heart-disease-goev.onrender.com/)
+## [Swagger Docs](https://predict-heart-disease-goev.onrender.com/)
 # 🚀 **Live API**: [Live GUI](https://heart-disease-prediction-joq2.onrender.com/docs#/)
 
 ---
