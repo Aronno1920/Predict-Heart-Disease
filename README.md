@@ -3,6 +3,7 @@ Build a simple **FastAPI** app that serves predictions from a machine learning c
 
 The model is trained using a Random Forest Classifier on the [Kaggle Heart Disease dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset).
 
+
 ## 🚀 Quick Start
 
 ➡ **Live GUI**: [Click here](https://predict-heart-disease-goev.onrender.com/) <br/>
@@ -10,6 +11,7 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 ➡ **ReDoc**: [Click here](https://predict-heart-disease-goev.onrender.com/)
 
 ---
+
 
 ## 🌟 Features
 - **Machine Learning Model**: Random Forest Classifier trained on heart disease dataset.
@@ -21,8 +23,9 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 
 ---
 
+
 ## 📂 Project Structure
-```
+```bash
 PredictHeartDisease/
 ├── app
 │ ├── main.py # FastAPI app entry point
@@ -35,10 +38,10 @@ PredictHeartDisease/
 ├── Dockerfile # Docker image definition
 ├── docker-compose.yml # Optional docker-compose setup
 └── README.md # Project documentation
-
+```
 ---
 
-```
+
 ## 🛠 Installation & Local Development
 
 ### 1. Prerequisites
@@ -113,7 +116,7 @@ POST	/predict	Predict heart disease based on input features
 POST /predict
 ```
 Request Body:
-``
+```bash
 {
   "age": 63,
   "sex": 1,
@@ -131,7 +134,7 @@ Request Body:
 }
 ```
 Response:
-```
+```bash
 {
   "heart_disease": true
 }
@@ -140,7 +143,7 @@ Response:
 
 The interactive API documentation is available here:
 👉 Swagger UI
-```
+
 ---
 I included:
 - Deployment link
