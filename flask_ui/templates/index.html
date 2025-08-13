@@ -4,74 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heart Disease Prediction</title>
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-
 </head>
 <body>
-<div class="card">
-    <h1>Heart Disease Prediction</h1>
-    <form method="post">
-        <div>
-            <label>Age</label>
-            <input type="number" name="age" value="50" required>
-        </div>
-        <div>
-            <label>Sex (0=Female, 1=Male)</label>
-            <input type="number" name="sex" value="1" required>
-        </div>
-        <div>
-            <label>Chest Pain Type (cp)</label>
-            <input type="number" name="cp" value="0" required>
-        </div>
-        <div>
-            <label>Resting BP (trestbps)</label>
-            <input type="number" name="trestbps" value="120" required>
-        </div>
-        <div>
-            <label>Cholesterol (chol)</label>
-            <input type="number" name="chol" value="200" required>
-        </div>
-        <div>
-            <label>Fasting Blood Sugar (fbs)</label>
-            <input type="number" name="fbs" value="0" required>
-        </div>
-        <div>
-            <label>Rest ECG (restecg)</label>
-            <input type="number" name="restecg" value="1" required>
-        </div>
-        <div>
-            <label>Max Heart Rate (thalach)</label>
-            <input type="number" name="thalach" value="150" required>
-        </div>
-        <div>
-            <label>Exercise Induced Angina (exang)</label>
-            <input type="number" name="exang" value="0" required>
-        </div>
-        <div>
-            <label>Oldpeak</label>
-            <input type="text" name="oldpeak" value="1.0" required>
-        </div>
-        <div>
-            <label>Slope</label>
-            <input type="number" name="slope" value="2" required>
-        </div>
-        <div>
-            <label>CA</label>
-            <input type="number" name="ca" value="0" required>
-        </div>
-        <div class="full-width">
-            <label>Thal</label>
-            <input type="number" name="thal" value="2" required>
-        </div>
-        <button type="submit">Predict</button>
+<div class="container">
+    <div class="card">
+        <h1>Heart Disease Prediction</h1>
+        <form id="predictForm" method="post">
+            {% set fields = [
+                ('Age','age'), ('Sex (0=F,1=M)','sex'), ('Chest Pain (cp)','cp'),
+                ('Rest BP','trestbps'), ('Cholesterol','chol'), ('Fasting BS','fbs'),
+                ('Rest ECG','restecg'), ('Max Heart Rate','thalach'), ('Exercise Angina','exang'),
+                ('Oldpeak','oldpeak'), ('Slope','slope'), ('CA','ca'), ('Thal','thal')
+            ] %}
 
-        {% if prediction is not none %}
-            <div class="result {{ 'positive' if prediction else 'negative' }}">
-                {{ '❤️ Heart Disease Detected' if prediction else '💚 No Heart Disease' }}
+            {% for label, name in fields %}
+                <div class="form-group {% if name=='thal' %}full-width{% endif %}">
+                    <label>{{ label }}</label>
+                    <input type="text" name="{{ name }}" value="{{ form_data.get(name,'') }}" required>
+                </div>
+            {% endfor %}
+
+            <div class="buttons">
+                <button type="submit" class="btn-predict">Predict</button>
+                <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
             </div>
-        {% endif %}
-    </form>
+
+            {% if prediction is not none %}
+                <div class="result {{ 'positive' if prediction else 'negative' }}">
+                    {{ '❤️ Heart Disease Detected' if prediction else '💚 No Heart Disease' }}
+                </div>
+            {% endif %}
+        </form>
+    </div>
+
+    <!-- Swagger Link -->
+    <div style="text-align:center; margin-top:20px;">
+        <a href="http://127.0.0.1:8000/docs" class="swagger-link" target="_blank">Show FastAPI Swagger</a>
+    </div>
 </div>
+
+<script>
+function clearForm(){
+    document.getElementById('predictForm').reset();
+    const result = document.querySelector('.result');
+    if(result) result.remove();
+}
+</script>
 </body>
 </html>

@@ -1,15 +1,10 @@
 import numpy as np
 from fastapi import FastAPI
 from app.schemas import HeartInput
-
 import joblib
 
 app = FastAPI(title="API: Predict Heart Disease")
-
-#Load Model
 model = joblib.load("model/heart_model.joblib")
-
-
 
 ##########################################
 @app.get("/health")
