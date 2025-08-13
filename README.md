@@ -141,7 +141,6 @@ The interactive API documentation is available here:
 👉 Swagger UI
 ```
 ---
----
 I included:
 - Deployment link
 - Installation steps
@@ -150,7 +149,6 @@ I included:
 - Swagger docs link
 Do you want me to also include a **cURL command** example so users can test `/predict` directly from the terminal? That could make the README even more developer-friendly.
 
-```
 
 ## 📸 Screenshots
 
