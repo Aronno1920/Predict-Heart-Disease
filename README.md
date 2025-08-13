@@ -64,11 +64,11 @@ python -m venv env
 source env/bin/activate
 ```
 ### 4. Install dependencies
-```
+```bash
 pip install -r requirements.txt
 ```
 ### 5. Train the model (if not already trained)
-```
+```bash
 # On Random Forest Classifier
 python model_train_random.py
 
@@ -76,7 +76,7 @@ python model_train_random.py
 python model_train_logistic.py
 ```
 ### 6. Run the API locally
-```
+```bash
 uvicorn app.main:app --reload
 
 API will be available at:
@@ -96,12 +96,12 @@ ReDoc ➡ http://127.0.0.1:8000/redoc
 
 
 ### 🐳 Run with Docker
-```
+```bash
 docker build -t heart-disease-api .
 docker run -p 8000:8000 heart-disease-api
 ```
 ### 🌐 Deployed API
-```
+```bash
 Live Endpoint:
 Base URL: https://heart-disease-prediction-joq2.onrender.com
 API Endpoints:
