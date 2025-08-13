@@ -5,9 +5,9 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 
 ## 🚀 Quick Start
 
-➡ **Live GUI**: [Swagger Docs](https://predict-heart-disease-goev.onrender.com/)
-➡ **Swagger Docs**: [Swagger Docs](https://predict-heart-disease-goev.onrender.com/)
-➡ **ReDoc**: [Swagger Docs](https://predict-heart-disease-goev.onrender.com/)
+➡ **Live GUI**: [Click here](https://predict-heart-disease-goev.onrender.com/) <br/>
+➡ **Swagger Docs**: [Click here](https://predict-heart-disease-goev.onrender.com/)<br/>
+➡ **ReDoc**: [Click here](https://predict-heart-disease-goev.onrender.com/)
 
 ---
 
