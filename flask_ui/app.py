@@ -1,14 +1,15 @@
 from flask import Flask, render_template, request
 import requests
 
-
 app = Flask(__name__)
 
 FASTAPI_URL = "http://localhost:8000/predict"  # Change when deployed
 
+################################################
 @app.route("/", methods=["GET", "POST"])
 def index():
-    prediction = None
+    prediction = None  # Start blank
+
     if request.method == "POST":
         # Collect form data
         form_data = {
@@ -38,6 +39,8 @@ def index():
             prediction = f"Error: {e}"
 
     return render_template("index.html", prediction=prediction)
+
+################################################
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

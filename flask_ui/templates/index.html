@@ -1,29 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Heart Disease Prediction</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Disease Prediction</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
 </head>
 <body>
+<div class="card">
     <h1>Heart Disease Prediction</h1>
     <form method="post">
-        Age: <input type="number" name="age" required><br>
-        Sex (0=Female, 1=Male): <input type="number" name="sex" required><br>
-        Chest Pain Type (cp): <input type="number" name="cp" required><br>
-        Resting BP (trestbps): <input type="number" name="trestbps" required><br>
-        Cholesterol (chol): <input type="number" name="chol" required><br>
-        Fasting Blood Sugar (fbs): <input type="number" name="fbs" required><br>
-        Rest ECG (restecg): <input type="number" name="restecg" required><br>
-        Max Heart Rate (thalach): <input type="number" name="thalach" required><br>
-        Exercise Induced Angina (exang): <input type="number" name="exang" required><br>
-        Oldpeak: <input type="text" name="oldpeak" required><br>
-        Slope: <input type="number" name="slope" required><br>
-        CA: <input type="number" name="ca" required><br>
-        Thal: <input type="number" name="thal" required><br><br>
-        <input type="submit" value="Predict">
-    </form>
+        <div>
+            <label>Age</label>
+            <input type="number" name="age" value="50" required>
+        </div>
+        <div>
+            <label>Sex (0=Female, 1=Male)</label>
+            <input type="number" name="sex" value="1" required>
+        </div>
+        <div>
+            <label>Chest Pain Type (cp)</label>
+            <input type="number" name="cp" value="0" required>
+        </div>
+        <div>
+            <label>Resting BP (trestbps)</label>
+            <input type="number" name="trestbps" value="120" required>
+        </div>
+        <div>
+            <label>Cholesterol (chol)</label>
+            <input type="number" name="chol" value="200" required>
+        </div>
+        <div>
+            <label>Fasting Blood Sugar (fbs)</label>
+            <input type="number" name="fbs" value="0" required>
+        </div>
+        <div>
+            <label>Rest ECG (restecg)</label>
+            <input type="number" name="restecg" value="1" required>
+        </div>
+        <div>
+            <label>Max Heart Rate (thalach)</label>
+            <input type="number" name="thalach" value="150" required>
+        </div>
+        <div>
+            <label>Exercise Induced Angina (exang)</label>
+            <input type="number" name="exang" value="0" required>
+        </div>
+        <div>
+            <label>Oldpeak</label>
+            <input type="text" name="oldpeak" value="1.0" required>
+        </div>
+        <div>
+            <label>Slope</label>
+            <input type="number" name="slope" value="2" required>
+        </div>
+        <div>
+            <label>CA</label>
+            <input type="number" name="ca" value="0" required>
+        </div>
+        <div class="full-width">
+            <label>Thal</label>
+            <input type="number" name="thal" value="2" required>
+        </div>
+        <button type="submit">Predict</button>
 
-    {% if prediction is not none %}
-        <h2>Prediction: {{ 'Heart Disease Detected' if prediction else 'No Heart Disease' }}</h2>
-    {% endif %}
+        {% if prediction is not none %}
+            <div class="result {{ 'positive' if prediction else 'negative' }}">
+                {{ '❤️ Heart Disease Detected' if prediction else '💚 No Heart Disease' }}
+            </div>
+        {% endif %}
+    </form>
+</div>
 </body>
 </html>
