@@ -35,20 +35,20 @@ PredictHeartDisease/
 ├── Dockerfile # Docker image definition
 ├── docker-compose.yml # Optional docker-compose setup
 └── README.md # Project documentation
+
 ---
+
 ```
 ## 🛠 Installation & Local Development
 
 ### 1. Prerequisites
-```
-bash
+```bash
 - Python 3.8+
 - pip (Python package manager)
 ```
 
 ### 2. Clone the repository
-```
-bash
+```bash
 git clone https://github.com/Aronno1920/Predict-Heart-Disease.git
 cd PredictHeartDisease
 ```
