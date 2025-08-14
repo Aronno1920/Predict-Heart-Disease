@@ -26,16 +26,21 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 ```bash
 PredictHeartDisease/
 ├── app
-│ ├── main.py # FastAPI app entry point
-│ ├── schemas.py # Pydantic request/response models
-├── model
-│ └── heart_model.joblib # Trained ML model
-├── heart.csv # Dataset
-├── model.py # Model training script
-├── requirements.txt # Python dependencies
-├── Dockerfile # Docker image definition
-├── docker-compose.yml # Optional docker-compose setup
-└── README.md # Project documentation
+│ ├── templates/
+│ │ ├── index.html  # User interface
+│ │ ├── style.css   # style file
+│ ├── main.py       # FastAPI app entry point
+│ ├── schemas.py    # Pydantic request/response models
+│ ├── model_train_logistic.py # Train model with Logistic Regression
+│ └── model_train_random.py   # Train model with Random Forest lassifier
+├── model/
+│ └── heart_model.joblib    # Trained ML model
+├── sample_data/
+│ └── heart.csv             # Sample data in csv format
+├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker image definition
+├── docker-compose.yml      # Optional docker-compose setup
+└── README.md               # Project documentation
 ```
 
 ---
@@ -77,6 +82,16 @@ python model_train_random.py
 python model_train_logistic.py
 ```
 ### 6. Run the API locally
+```bash
+uvicorn app.main:app --reload
+
+API will be available at:
+API ➡ http://127.0.0.1:8000
+Swagger Docs ➡ http://127.0.0.1:8000/docs
+ReDoc ➡ http://127.0.0.1:8000/redoc
+```
+
+### 7. Run the API locally
 ```bash
 uvicorn app.main:app --reload
 
@@ -151,13 +166,16 @@ Do you want me to also include a **cURL command** example so users can test `/pr
 
 ## 📸 Screenshots
 
-![API Performance Comparison](Io_bound_task.png)
-*Performance comparison between sync and async endpoints*
+![API Performance Comparison]("screenshot/Screenshot_1.png")
+*Screenshot of User Interface - Heart Disease Prediction*
 
-![API Usage Example](Io_example_api.png)
-*Example API usage and response*
+![API Performance Comparison]("screenshot/Screenshot_2.png")
+*Screenshot of Negative - Heart Disease Prediction*
+
+![API Performance Comparison]("screenshot/Screenshot_3.png")
+*Screenshot of Positive - Heart Disease Prediction*
 
 ---
 
 **Author**: [Selim Ahmed](https://github.com/aronno1920)  
-**Project**: FastAPI - Predict Heart Disease  
+**Project**: Predict Heart Disease (FastAPI/GUI)
