@@ -3,12 +3,14 @@ Build a simple **FastAPI** app that serves predictions from a machine learning c
 
 The model is trained using a Random Forest Classifier on the [Kaggle Heart Disease dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset).
 
+<br/>
 
 ## 🚀 Quick Start
 
 ➡ **Live GUI**: [Click here](https://predict-heart-disease-goev.onrender.com/) <br/>
 ➡ **Swagger Docs**: [Click here](https://predict-heart-disease-goev.onrender.com/docs)<br/>
 ➡ **ReDoc**: [Click here](https://predict-heart-disease-goev.onrender.com/redoc)
+
 <br/>
 
 ## 🌟 Features
@@ -18,6 +20,7 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 - **Auto Documentation**: Interactive API docs with Swagger UI
 - **Dockerized** for easy deployment.
 - **Live on Render** with automatic documentation.
+
 <br/>
 
 ## 📂 Project Structure
@@ -40,6 +43,7 @@ PredictHeartDisease/
 ├── docker-compose.yml      # Optional docker-compose setup
 └── README.md               # Project documentation
 ```
+
 <br/>
 
 ## 🛠 Installation & Local Development
@@ -97,6 +101,7 @@ API ➡ http://127.0.0.1:8000
 Swagger Docs ➡ http://127.0.0.1:8000/docs
 ReDoc ➡ http://127.0.0.1:8000/redoc
 ```
+
 <br/>
 
 ## 📖 API Endpoints
@@ -107,6 +112,7 @@ ReDoc ➡ http://127.0.0.1:8000/redoc
 | GET | `/health` | Health check endpoint |
 | GET | `/info` | Model information |
 | POST | `/predict` | Predict Iris species |
+
 <br/>
 
 ## 🐳 Run with Docker
@@ -150,6 +156,7 @@ Response:
   "heart_disease": true
 }
 ```
+
 <br/>
 
 I included:
@@ -159,6 +166,7 @@ I included:
 - Example API request/response
 - Swagger docs link
 Do you want me to also include a **cURL command** example so users can test `/predict` directly from the terminal? That could make the README even more developer-friendly.
+
 <br/>
 
 ## 📸 Screenshots
@@ -168,7 +176,10 @@ Do you want me to also include a **cURL command** example so users can test `/pr
 *Screenshot of Negative - Heart Disease Prediction*
 ![API Performance Comparison](screenshot/Screenshot_3.png)
 *Screenshot of Positive - Heart Disease Prediction*
+
 <br/>
+
+---
 
 **Author**: [Selim Ahmed](https://github.com/aronno1920)  
 **Project**: Predict Heart Disease (FastAPI/GUI)
