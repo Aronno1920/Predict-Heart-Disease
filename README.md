@@ -10,7 +10,7 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 ➡ **Swagger Docs**: [Click here](https://predict-heart-disease-goev.onrender.com/docs)<br/>
 ➡ **ReDoc**: [Click here](https://predict-heart-disease-goev.onrender.com/redoc)
 
----
+<br/>
 
 ## 🌟 Features
 - **Machine Learning Model**: Random Forest Classifier trained on heart disease dataset.
@@ -20,7 +20,7 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 - **Dockerized** for easy deployment.
 - **Live on Render** with automatic documentation.
 
----
+<br/>
 
 ## 📂 Project Structure
 ```bash
@@ -43,7 +43,7 @@ PredictHeartDisease/
 └── README.md               # Project documentation
 ```
 
----
+<br/>
 
 ## 🛠 Installation & Local Development
 
@@ -153,7 +153,7 @@ Response:
 }
 ```
 
----
+<br/>
 
 I included:
 - Deployment link
@@ -175,7 +175,7 @@ Do you want me to also include a **cURL command** example so users can test `/pr
 ![API Performance Comparison](screenshot/Screenshot_3.png)
 *Screenshot of Positive - Heart Disease Prediction*
 
----
+<br/>
 
 **Author**: [Selim Ahmed](https://github.com/aronno1920)  
 **Project**: Predict Heart Disease (FastAPI/GUI)
