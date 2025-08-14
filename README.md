@@ -166,13 +166,13 @@ Do you want me to also include a **cURL command** example so users can test `/pr
 
 ## 📸 Screenshots
 
-![API Performance Comparison]("screenshot/Screenshot_1.png")
+![API Performance Comparison](screenshot/Screenshot_1.png)
 *Screenshot of User Interface - Heart Disease Prediction*
 
-![API Performance Comparison]("screenshot/Screenshot_2.png")
+![API Performance Comparison](screenshot/Screenshot_2.png)
 *Screenshot of Negative - Heart Disease Prediction*
 
-![API Performance Comparison]("screenshot/Screenshot_3.png")
+![API Performance Comparison](screenshot/Screenshot_3.png)
 *Screenshot of Positive - Heart Disease Prediction*
 
 ---
