@@ -189,12 +189,12 @@
         </form>
 
         <!-- Result Box -->
-        <div id="resultBox" class="hidden mt-8 p-5 rounded-lg text-center font-semibold text-lg shadow-lg fade-in"></div>
+         <div id="resultBox"></div>
     </div>
 
         <!-- Swagger Link -->
     <div style="text-align: center; margin-top: 15px;">
-        <a href="http://localhost:8000/docs" target="_blank" class="swagger-link">📄 API Docs</a>
+        <a href="https://predict-heart-disease-goev.onrender.com/docs" target="_blank" class="swagger-link">📄 API Docs</a>
     </div>
 
 </div>
@@ -226,10 +226,10 @@
 
             if (result.heart_disease) {
                 resultBox.textContent = "💔 Opps !!! Positive for Heart Disease";
-                resultBox.className = "mt-8 p-5 rounded-lg text-center font-semibold text-lg bg-red-100 text-red-700 shadow-lg fade-in";
+                resultBox.className = "result positive";
             } else {
                 resultBox.textContent = "💖 WOW !!! Negative for Heart Disease";
-                resultBox.className = "mt-8 p-5 rounded-lg text-center font-semibold text-lg bg-green-100 text-green-700 shadow-lg fade-in";
+                resultBox.className = "result negative";
             }
 
             resultBox.classList.remove("hidden");

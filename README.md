@@ -12,7 +12,6 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 
 ---
 
-
 ## 🌟 Features
 - **Machine Learning Model**: Random Forest Classifier trained on heart disease dataset.
 - **RESTful API**: Clean, well-documented endpoints using FastAPI.
@@ -22,7 +21,6 @@ The model is trained using a Random Forest Classifier on the [Kaggle Heart Disea
 - **Live on Render** with automatic documentation.
 
 ---
-
 
 ## 📂 Project Structure
 ```bash
@@ -39,8 +37,8 @@ PredictHeartDisease/
 ├── docker-compose.yml # Optional docker-compose setup
 └── README.md # Project documentation
 ```
----
 
+---
 
 ## 🛠 Installation & Local Development
 
