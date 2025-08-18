@@ -64,7 +64,7 @@ cd PredictHeartDisease
 # On Windows PowerShell
 python -m venv venv
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-.\env\Scripts\activate
+.\venv\Scripts\activate
 
 # On Linux/Mac
 python -m venv env
